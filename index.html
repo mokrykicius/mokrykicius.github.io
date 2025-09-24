@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+              body {
+      font-family: Arial, Helvetica;
+      text-align: center;
+      background-color: #fef4e8;
+      background-image: url(sagawa.gif);
+        background-repeat: no-repeat;
+          background-attachment: fixed;
+  background-size: 100% 100%;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #000000;
+        -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ffffff;
+    }
+
+    .belly img {
+      width: 400px;
+      height: 600px;
+      text-align: center;
+    }
+
+    .sponge img {
+      width: 100px;
+      height: 50px;
+      cursor: grab;
+      left: 50%;
+      top: 350px;
+      transform: translateX(-50%);
+    }
+
+    #message {
+      font-size: 2em;
+      color: #000000;
+      margin-top: 40px;
+    }
+
+    #focie img {
+      float: left;
+
+    }
+    #fotki img {
+      float: right;
+     
+    }
+  </style>
+   
+</head>
+<body>
+
+ 
+  <div class="belly">
+    <img src="majimer.png" alt="majimer" id="majimer">
+    
+  </div>
+  <section id="fotki"> 
+<img src="cock.jpg" height="200px" width="250px"  > <br>
+<img src="kitty.jpg " height="200px" width="250px">
+</section>
+<section id="focie"> 
+<img src="mniszek.jpg"height="200px" width="250px"> <br>
+<img src="YAOI.jpg"height="200px" width="250px">
+</section>
+  <div class="sponge" >
+     <img src="sponge.png" alt="sponge" id="sponge" draggable="true">
+  </div>
+
+
+  <div id="message"></div>
+  <h1 id="instruction">Wash my bellay!</h1>
+  <script>
+    const sponge = document.getElementById("sponge");
+    const belly = document.getElementById("majimer");
+    const message = document.getElementById("message");
+    const instruction = document.getElementById("instruction");
+
+    // Umożliwiamy "upuszczanie" gąbki na brzuch
+    belly.addEventListener("dragover", (e) => {
+      e.preventDefault(); // to musi być, żeby "drop" zadziałał
+    });
+
+    // Reakcja po "upuszczeniu" gąbki na brzuch
+    belly.addEventListener("drop", () => {
+      instruction.style.display = "none";     
+      message.innerHTML = "<h1>Yaaaay!!</h1>";      
+    });
+  </script>
+</body>
+</html>

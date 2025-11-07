@@ -72,7 +72,69 @@
   <div class="sponge" >
      <img src="sponge.png" alt="sponge" id="sponge" draggable="true">
   </div>
+<div class=" jajko">
+     
+ <h1>:MEASURE YOUR COCK NOW!!!11</h1>
 
+  <label for="height">Input your height </label>
+  <input type="number" id="height" placeholder="for e.g. 180" />
+
+  <br>
+  <label for="country">Choose the country:</label>
+  <select id="country">
+    <option value="pl">Poland</option>
+    <option value="jp">Japan</option>
+  </select>
+
+  <br>
+  <button onclick="calculate()">CHECK1!!?!1</button>
+
+  <div id="output" class="result"></div>
+
+  <script>
+     function calculate() {
+    const height = parseFloat(document.getElementById("height").value);
+    const country = document.getElementById("country").value;
+    const output = document.getElementById("output");
+
+    if (isNaN(height) || height <= 0) {
+      output.innerHTML = "Height: (in cms)";
+      return;
+    }
+
+    showResult(height, country);
+  }
+
+  function showResult(height, country) {
+    const max = 0.080 * height;
+    const min = 1.268 * 8;
+
+    const max2 = 0.078 * height;
+    const min2 = 1.44 * 8;
+
+    const avg = (country === "pl" || country === "jp") ? 13.9 : 10.9;
+
+    const output = document.getElementById("output");
+
+    if (country === "pl") {
+      output.innerHTML = `
+        <p>Your height: <b>${height} cm</b></p>
+        <p>When down: <b>${min.toFixed(2)} cm</b></p>
+        <p>When up: <b>${max.toFixed(2)} cm</b></p>
+      `;
+    } else if (country === "jp") {
+      output.innerHTML = `
+        <p>Your height: <b>${height} cm</b></p>
+        <p>When down: <b>${min2.toFixed(2)} cm</b></p>
+        <p>When up: <b>${max2.toFixed(2)} cm</b></p>
+      `;
+    } else {
+      output.innerHTML = `<p>Unsupported country code.</p>`;
+    }
+  }
+      </script>
+
+  </div>
 
   <div id="message"></div>
   <h1 id="instruction">Wash my bellay!</h1>
@@ -82,16 +144,17 @@
     const message = document.getElementById("message");
     const instruction = document.getElementById("instruction");
 
-    // Umożliwiamy "upuszczanie" gąbki na brzuch
+
     belly.addEventListener("dragover", (e) => {
-      e.preventDefault(); // to musi być, żeby "drop" zadziałał
+      e.preventDefault(); 
     });
 
-    // Reakcja po "upuszczeniu" gąbki na brzuch
+ 
     belly.addEventListener("drop", () => {
       instruction.style.display = "none";     
       message.innerHTML = "<h1>Yaaaay!!</h1>";      
     });
   </script>
 </body>
+
 </html>
